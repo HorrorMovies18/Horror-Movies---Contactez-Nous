@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Horror Movies - Contactez-Nous</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            perspective: 1000px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header img {
+            width: 100px;
+            animation: logo-spin 4s linear infinite;
+        }
+        @keyframes logo-spin {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+        .container {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            transform: rotateY(0deg);
+            transition: transform 0.6s ease-in-out;
+        }
+        .container:hover {
+            transform: rotateY(10deg);
+        }
+        .container h1 {
+            color: red;
+            text-shadow: 0 0 10px red;
+            animation: text-flicker 3s infinite;
+            font-size: 24px;
+        }
+        @keyframes text-flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .container input, .container textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            background-color: #555;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            transition: transform 0.3s ease-in-out;
+        }
+        .container input:focus, .container textarea:focus {
+            transform: scale(1.05);
+        }
+        .container button {
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+        .container button:hover {
+            background-color: darkred;
+            transform: scale(1.1);
+        }
+        .add-movie {
+            margin-top: 20px;
+            color: #fff;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        document.onkeydown = function(e) {
+            if (e.key == 'F12' || (e.ctrlKey && e.shiftKey && e.key == 'I')) {
+                e.preventDefault();
+            }
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <img src="https://i.imgur.com/iYZcdxp.png" alt="Logo">
+    </header>
+    <div class="container">
+        <h1>Contactez-Nous</h1>
+        <form action="https://formspree.io/f/xbljdpwd" method="POST">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="_replyto" placeholder="Votre adresse e-mail" required>
+            <input type="text" name="movie" placeholder="Nom du film d'horreur" required>
+            <input type="text" name="year" placeholder="Année" required>
+            <textarea name="message" placeholder="Votre message"></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+        <div class="add-movie">Ajoutez votre film d'horreur</div>
+    </div>
+</body>
+</html>
